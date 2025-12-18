@@ -37,13 +37,13 @@
                 <p class="text-gray-600 mt-1">Silakan login untuk melanjutkan</p>
 
                 <!-- FORM -->
-                <form class="mt-6 space-y-6" action="{{ url('/login') }}" method="POST">
-
+                <form class="mt-6 space-y-6" action="{{ route('login.store') }}" method="POST">
+                    @csrf
                     <!-- EMAIL -->
                     <div>
                         <label class="font-medium">Email</label>
                         <div class="relative mt-1">
-                            <input type="email"
+                            <input type="email" name="email"
                                 class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
                                 placeholder="Masukkan email">
                         </div>
@@ -53,7 +53,7 @@
                     <div>
                         <label class="font-medium">Password</label>
                         <div class="relative mt-1">
-                            <input id="passwordField" type="password"
+                            <input id="passwordField" type="password" name="password"
                                 class="w-full px-4 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
                                 placeholder="Masukkan password">
 

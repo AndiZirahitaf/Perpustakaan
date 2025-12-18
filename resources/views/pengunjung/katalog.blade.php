@@ -163,55 +163,44 @@
     <div class="max-w-7xl mx-auto px-4 lg:px-8">
 
         <h3 class="font-semibold text-gray-700 mb-4">Buku Tersedia</h3>
-        <p class="text-sm text-gray-500 mb-6">Menampilkan 8 buku</p>
+    <p class="text-sm text-gray-500 mb-6">
+        Menampilkan {{ $buku->count() }} buku
+    </p>
 
-        @php
-            $images = ['book1.jpg', 'book2.jpg'];
-            $titles = [
-                "The Midnight Library", "Atomic Habits", "The Psychology of Money", "Sapiens",
-                "Deep Work", "Thinking, Fast and Slow", "1984", "The Power of Now"
-            ];
-            $authors = [
-                "Matt Haig", "James Clear", "Morgan Housel", "Yuval Noah Harari",
-                "Cal Newport", "Daniel Kahneman", "George Orwell", "Eckhart Tolle"
-            ];
-            $year = ["2021","2018","2020","2011","2016","2011","1949","1997"];
-            $category = ["Fiksi","Pengembangan Diri","Keuangan","Sejarah","Produktivitas","Psikologi","Fiksi","Pengembangan Diri"];
-            $status = ["Tersedia","Tersedia","Dipinjam","Tersedia","Tersedia","Tersedia","Tersedia","Dipinjam"];
-        @endphp
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+    @foreach ($buku as $item)
+        <a href="#"
+        class="bg-white rounded-xl shadow hover:shadow-md transition p-3 flex flex-col">
 
-            @for ($i = 0; $i < 8; $i++)
-            <a href="{{ url('/detail-book?title=' . urlencode($titles[$i])) }}"
-               class="bg-white rounded-xl shadow hover:shadow-md transition p-3 flex flex-col">
+            <div class="rounded-xl overflow-hidden">
+                <img src="{{ asset('assets/img/book1.jpg') }}"
+                    class="w-full h-40 object-cover">
+            </div>
 
-                <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/img/' . $images[$i % 2]) }}" class="w-full h-40 object-cover">
-                </div>
-
-                @if ($status[$i] === "Tersedia")
-                    <span class="mt-3 inline-block text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">
-                        Tersedia
-                    </span>
-                @else
-                    <span class="mt-3 inline-block text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full">
-                        Dipinjam
-                    </span>
-                @endif
-
-                <h4 class="font-semibold text-sm mt-2">{{ $titles[$i] }}</h4>
-                <p class="text-xs text-gray-500">{{ $authors[$i] }}</p>
-                <p class="text-xs text-gray-400">{{ $year[$i] }}</p>
-
-                <span class="mt-2 text-[10px] bg-gray-100 px-2 py-1 rounded-full text-gray-600">
-                    {{ $category[$i] }}
+            @if ($item->status_ketersediaan === 'Tersedia')
+                <span class="mt-3 inline-block text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">
+                    Tersedia
                 </span>
+            @else
+                <span class="mt-3 inline-block text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full">
+                    Dipinjam
+                </span>
+            @endif
 
-            </a>
-            @endfor
+            <h4 class="font-semibold text-sm mt-2">{{ $item->judul }}</h4>
+            <p class="text-xs text-gray-500">{{ $item->penulis }}</p>
+            <p class="text-xs text-gray-400">{{ $item->tahun_terbit }}</p>
 
-        </div>
+            <span class="mt-2 text-[10px] bg-gray-100 px-2 py-1 rounded-full text-gray-600">
+                {{ $item->penerbit }}
+            </span>
+
+        </a>
+    @endforeach
+
+    </div>
+
 
         <div class="flex justify-center items-center gap-2 mt-10">
             <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">‹</button>

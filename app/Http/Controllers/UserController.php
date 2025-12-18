@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function showLogin(){
+        return view('pengunjung.login');
+    }
+
     public function login(Request $request)
     {
         // 1. Validasi input
@@ -22,16 +26,15 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return response()->json([
-                'message' => 'Login berhasil',
-                'user' => Auth::user()
-            ], 200);//sd
+            return redirect('/')->with('success', 'Login berhasil');
+
         }
 
         // 3. Jika gagal
         return response()->json([
             'message' => 'Email atau password salah'
         ], 401);
+        
     }
 
     public function logout(Request $request)
@@ -76,8 +79,10 @@ class UserController extends Controller
         'address' => $data['address'],
     ]);
 
-    // 3. Redirect / response
-    return redirect('/login')->with('success', 'Registrasi berhasil, silakan login.');
+    return redirect()
+    ->route('login.show')
+    ->with('success', 'Registrasi berhasil, silakan login.');
+
 }
 
 }

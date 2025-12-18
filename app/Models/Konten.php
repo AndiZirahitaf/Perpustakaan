@@ -12,14 +12,13 @@ class Konten extends Model
     
 
     protected $fillable = [
-    'id_admin',
-    'judul',
-    'slug',
-    'isi_konten',
-    'tanggal_publikasi',
-    'tipe_konten',
-    'gambar'
-];
+        'id_admin',
+        'judul',
+        'isi_konten',
+        'tanggal_publikasi',
+        'tipe_konten',
+        'gambar',
+    ];
 
     // Relasi: konten milik satu admin
     public function pustakawan()
