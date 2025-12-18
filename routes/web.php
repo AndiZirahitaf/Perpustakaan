@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BukuController;
 
 // ==========================
 // ROUTE HALAMAN PENGUNJUNG
@@ -37,9 +38,9 @@ Route::post('/regist', [UserController::class, 'register'])
 
 
 // KATALOG
-Route::get('/katalog', function () {
-    return view('pengunjung.katalog');
-})->name('katalog');
+
+Route::get('/katalog', [BukuController::class, 'index'])
+    ->name('katalog');
 
 // PENGUMUMAN
 Route::get('/pengumuman', function () {
