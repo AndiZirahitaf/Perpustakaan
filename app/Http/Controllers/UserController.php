@@ -25,7 +25,7 @@ class UserController extends Controller
             return response()->json([
                 'message' => 'Login berhasil',
                 'user' => Auth::user()
-            ], 200);
+            ], 200);//sd
         }
 
         // 3. Jika gagal
