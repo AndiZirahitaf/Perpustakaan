@@ -16,7 +16,8 @@ class Konten extends Model
         'judul',
         'isi_konten',
         'tanggal_publikasi',
-        'tipe_konten'
+        'tipe_konten',
+        'gambar',
     ];
 
     // Relasi: konten milik satu admin

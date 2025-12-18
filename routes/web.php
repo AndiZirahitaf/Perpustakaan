@@ -24,12 +24,13 @@ Route::get('/', function () {
 // Route::get('/login', function () {
 //     return view('pengunjung.login');
 // })->name('login');
-Route::post('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'showLogin'])->name('login.show');
+Route::post('/log', [UserController::class, 'login'])->name('login.store');
 
 
 // asdasdasd
 Route::get('/register', [UserController::class, 'showRegister'])
-    ->name('register');
+    ->name('register.show');
 
 Route::post('/regist', [UserController::class, 'register'])
     ->name('register.store');

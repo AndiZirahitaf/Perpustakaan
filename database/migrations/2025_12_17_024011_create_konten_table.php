@@ -15,6 +15,7 @@ return new class extends Migration
             $table->text('isi_konten');
             $table->dateTime('tanggal_publikasi');
             $table->string('tipe_konten', 20);
+            $table->text('gambar')->nullable();
 
             $table->foreign('id_admin')
                   ->references('id_admin')
