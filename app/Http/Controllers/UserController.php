@@ -46,8 +46,12 @@ class UserController extends Controller
         ]);
     }
 
+    public function showRegister(){
+        return view('pengunjung.register');
+    }
+
     public function register(Request $request){
-    // 1. Validasi (ketat & realistis)
+    
     $data = $request->validate([
         'name' => 'required|string|max:100',
         'email' => 'required|email|unique:users,email',

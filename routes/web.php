@@ -26,12 +26,14 @@ Route::get('/', function () {
 // })->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
-// REGISTER
-// Route::get('/register', function () {
-//     return view('pengunjung.register');
-// })->name('register');
 
-Route::post('/register', [UserController::class, 'register']);
+// asdasdasd
+Route::get('/register', [UserController::class, 'showRegister'])
+    ->name('register');
+
+Route::post('/regist', [UserController::class, 'register'])
+    ->name('register.store');
+
 
 // KATALOG
 Route::get('/katalog', function () {

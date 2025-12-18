@@ -138,7 +138,7 @@
 <!-- ================= FORM REGISTRASI ================= -->
 <section class="max-w-4xl mx-auto px-4 lg:px-0 mb-20">
 
-    <form action="{{ url('/register') }}" method="POST" class="max-w-4xl mx-auto px-4 lg:px-0 mb-20">
+    <form action="{{ route('register.store') }}" method="POST" class="max-w-4xl mx-auto px-4 lg:px-0 mb-20">
     @csrf
         <div class="bg-white rounded-2xl shadow-md p-8 space-y-10">
 
