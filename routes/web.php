@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PengumumanController;
 
 // ==========================
 // ROUTE HALAMAN PENGUNJUNG
@@ -40,10 +41,6 @@ Route::get('/katalog', function () {
     return view('pengunjung.katalog');
 })->name('katalog');
 
-// PENGUMUMAN
-Route::get('/pengumuman', function () {
-    return view('pengunjung.pengumuman');
-})->name('pengumuman');
 
 // FAQ
 Route::get('/faq', function () {
@@ -64,3 +61,5 @@ Route::get('/agenda', function () {
 Route::get('/detail-book', function () {
     return view('pengunjung.detail_book');
 })->name('detail.book');
+
+Route::get('/pengumuman', [PengumumanController::class, 'index']);
