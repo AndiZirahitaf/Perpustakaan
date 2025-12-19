@@ -246,20 +246,38 @@
         @endphp
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach ($berita as $b)
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
-                    <img src="{{ asset('assets/img/'.$b['gambar']) }}" class="h-40 w-full object-cover">
-                    <div class="p-5">
-                        <p class="text-xs text-gray-400 mb-1">{{ $b['tanggal'] }}</p>
-                        <h4 class="font-semibold text-sm mb-2">{{ $b['judul'] }}</h4>
-                        <p class="text-xs text-gray-500 mb-3">{{ $b['desc'] }}</p>
-                        <a href="#" class="text-xs font-semibold text-green-700">
-                            Baca Selengkapnya →
-                        </a>
-                    </div>
-                </article>
-            @endforeach
-        </div>
+    @foreach ($konten as $p)
+        <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
+
+            <img src="{{ $p->gambar ? asset($p->gambar) : asset('assets/img/default.png') }}"
+                 class="h-40 w-full object-cover"
+                 alt="{{ $p->judul }}">
+
+            <div class="p-5">
+                <div class="flex items-center gap-2 mb-1 text-xs text-green-700 ">
+                    
+                    <span>
+                        {{ \Carbon\Carbon::parse($p->tanggal_publikasi)->translatedFormat('d M Y') }}
+                    </span>
+                </div>
+
+                <h4 class="font-semibold text-sm mb-2">
+                    {{ $p->judul }}
+                </h4>
+
+                <p class="text-xs text-gray-500 mb-3">
+                    {{ \Illuminate\Support\Str::limit(strip_tags($p->isi_konten), 90) }}
+                </p>
+
+                <a href="#"
+                   class="text-xs font-semibold text-green-700 hover:underline">
+                    Baca Selengkapnya →
+                </a>
+            </div>
+        </article>
+    @endforeach
+</div>
+
 
     </div>
 </section>

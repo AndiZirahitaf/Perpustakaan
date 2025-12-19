@@ -166,13 +166,52 @@
 </section>
 
 <!-- ================= PAGINATION ================= -->
+@if ($konten->hasPages())
 <div class="flex justify-center items-center gap-2 my-10">
-    <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">‹</button>
-    <button class="w-8 h-8 rounded-lg bg-green-600 text-white text-sm">1</button>
-    <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">2</button>
-    <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">3</button>
-    <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">›</button>
+
+    {{-- Previous --}}
+    @if ($konten->onFirstPage())
+        <span class="w-8 h-8 flex items-center justify-center rounded-lg border bg-gray-100 text-gray-400 cursor-not-allowed">
+            ‹
+        </span>
+    @else
+        <a href="{{ $konten->previousPageUrl() }}"
+           class="w-8 h-8 flex items-center justify-center rounded-lg border bg-white hover:bg-gray-100 text-sm">
+            ‹
+        </a>
+    @endif
+
+    {{-- Page Numbers --}}
+    @foreach ($konten->getUrlRange(1, $konten->lastPage()) as $page => $url)
+        @if ($page == $konten->currentPage())
+            <span class="w-8 h-8 flex items-center justify-center rounded-lg bg-green-600 text-white text-sm">
+                {{ $page }}
+            </span>
+        @else
+            <a href="{{ $url }}"
+               class="w-8 h-8 flex items-center justify-center rounded-lg border bg-white hover:bg-gray-100 text-sm">
+                {{ $page }}
+            </a>
+        @endif
+    @endforeach
+
+    {{-- Next --}}
+    @if ($konten->hasMorePages())
+        <a href="{{ $konten->nextPageUrl() }}"
+           class="w-8 h-8 flex items-center justify-center rounded-lg border bg-white hover:bg-gray-100 text-sm">
+            ›
+        </a>
+    @else
+        <span class="w-8 h-8 flex items-center justify-center rounded-lg border bg-gray-100 text-gray-400 cursor-not-allowed">
+            ›
+        </span>
+    @endif
+
 </div>
+@endif
+
+
+
 
 <!-- ================= FOOTER ================= -->
 <footer class="bg-gray-900 text-gray-300 pt-10 pb-6">

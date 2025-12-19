@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PengumumanController;
 
 // ==========================
 // ROUTE HALAMAN PENGUNJUNG
@@ -66,3 +67,4 @@ Route::get('/detail-book', function () {
 })->name('detail.book');
 
 Route::get('/pengumuman', [PengumumanController::class, 'index']);
+Route::get('/', [PengumumanController::class, 'home']);
