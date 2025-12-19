@@ -24,8 +24,8 @@
         <nav class="hidden md:flex items-center gap-6 text-sm text-gray-600">
             <a href="{{ route('home') }}" class="hover:text-green-600">Home</a>
             <a href="{{ route('katalog') }}" class="hover:text-green-600">Katalog</a>
-            <a href="{{ route('pengumuman') }}" class="hover:text-green-600">Pengumuman</a>
-            <a href="{{ route('agenda') }}" class="hover:text-green-600">Agenda</a>
+            <a href="#" class="hover:text-green-600">Pengumuman</a>
+            <a href="#" class="hover:text-green-600">Agenda</a>
             <a href="{{ route('login.show') }}"
                class="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
                 Login
@@ -103,7 +103,7 @@
 </section>
 
 <!-- ================= RECOMMEND ================= -->
-<section class="max-w-7xl mx-auto px-4 lg:px-8 py-10">
+{{-- <section class="max-w-7xl mx-auto px-4 lg:px-8 py-10">
     <h3 class="font-semibold text-gray-700">Anda Mungkin Juga Suka</h3>
     <p class="text-sm text-gray-500 mb-6">Buku lain yang serupa</p>
 
@@ -120,7 +120,7 @@
         @endforeach
 
     </div>
-</section>
+</section> --}}
 
 <!-- FOOTER -->
 <footer class="bg-gray-900 text-gray-300 pt-10 pb-6 mt-10">

@@ -21,7 +21,7 @@ class BukuController extends Controller
     $buku = Buku::findOrFail($id);
 
     // Rekomendasi sederhana (selain buku ini)
-    $rekomendasi = Buku::where('id', '!=', $id)
+    $rekomendasi = Buku::where('id_buku', '!=', $id)
         ->limit(4)
         ->get();
 

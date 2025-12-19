@@ -15,7 +15,7 @@
 
         <!-- Brand -->
         <div class="flex items-center gap-2">
-            <img src="{{ asset('assets/img/logoperpus.png') }}" class="w-10 h-10 object-contain">
+            <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">BT</div>
             <div>
                 <h1 class="text-lg font-bold text-green-700 leading-tight">BookTech</h1>
                 <p class="text-xs text-gray-500 -mt-1">Perpustakaan Digital</p>
@@ -26,10 +26,10 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-6 text-sm text-gray-600">
-                <a href="{{ url('/home-pengunjung') }}" class="hover:text-green-600">Home</a>
-                <a href="{{ url('/katalog') }}" class="hover:text-green-600">Katalog</a>
-                <a href="{{ url('/pengumuman') }}" class="hover:text-green-600">Pengumuman</a>
-                <a href="{{ url('/agenda') }}" class="hover:text-green-600">Agenda</a>
+                <a href="#" class="hover:text-green-600">Home</a>
+                <a href="#" class="hover:text-green-600">Katalog</a>
+                <a href="#" class="hover:text-green-600">Pengumuman</a>
+                <a href="#" class="hover:text-green-600">Agenda</a>
 
                 <div class="relative">
                     <button id="dropdownBtn" class="flex items-center gap-1 hover:text-green-600">
@@ -44,14 +44,14 @@
 
                     <div id="dropdownMenu"
                         class="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded-lg py-2 text-sm hidden z-50">
-                        <a href="{{ url('/register') }}" class="block px-4 py-2 hover:bg-gray-100">Pendaftaran</a>
-                        <a href="{{ url('/faq') }}" class="block px-4 py-2 hover:bg-gray-100">FAQ</a>
-                        <a href="{{ url('/contact') }}" class="block px-4 py-2 hover:bg-gray-100">Kontak</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Pendaftaran</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">FAQ</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kontak</a>
                     </div>
                 </div>
             </nav>
 
-            <a href="{{ url('/login') }}"
+            <a href="#"
                class="hidden md:inline-block px-5 py-2 rounded-lg bg-green-600 text-white text-sm font-semibold hover:bg-green-700">
                 Login
             </a>
@@ -63,11 +63,10 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 md:hidden">
         <nav class="flex flex-col p-4 text-sm text-gray-700 space-y-3">
-
-            <a href="{{ url('/home-pengunjung') }}">Home</a>
-            <a href="{{ url('/katalog') }}">Katalog</a>
-            <a href="{{ url('/pengumuman') }}">Pengumuman</a>
-            <a href="{{ url('/agenda') }}">Agenda</a>
+            <a href="#">Home</a>
+            <a href="#">Katalog</a>
+            <a href="#">Pengumuman</a>
+            <a href="#">Agenda</a>
 
             <div class="border-t pt-3">
                 <button id="mobileDropdownBtn" class="flex justify-between w-full text-left py-2">
@@ -80,42 +79,16 @@
                 </button>
 
                 <div id="mobileDropdownMenu" class="hidden pl-4 space-y-2">
-                    <a href="{{ url('/register') }}" class="block py-1">Pendaftaran</a>
-                    <a href="{{ url('/faq') }}" class="block py-1">FAQ</a>
-                    <a href="{{ url('/contact') }}" class="block py-1">Kontak</a>
+                    <a href="#" class="block py-1">Pendaftaran</a>
+                    <a href="#" class="block py-1">FAQ</a>
+                    <a href="#" class="block py-1">Kontak</a>
                 </div>
             </div>
 
-            <a href="{{ url('/login') }}" class="text-green-700 font-semibold mt-2">Login</a>
+            <a href="#" class="text-green-700 font-semibold mt-2">Login</a>
         </nav>
     </div>
 </header>
-
-<script>
-    document.getElementById("menuBtn").onclick = () =>
-        document.getElementById("mobileMenu").classList.toggle("hidden");
-
-    const dropdownBtn = document.getElementById("dropdownBtn");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-    const dropdownIcon = document.getElementById("dropdownIcon");
-
-    dropdownBtn.onclick = () => {
-        dropdownMenu.classList.toggle("hidden");
-        dropdownIcon.classList.toggle("rotate-180");
-    };
-
-    document.addEventListener("click", (e) => {
-        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.add("hidden");
-            dropdownIcon.classList.remove("rotate-180");
-        }
-    });
-
-    document.getElementById("mobileDropdownBtn").onclick = () => {
-        document.getElementById("mobileDropdownMenu").classList.toggle("hidden");
-        document.getElementById("mobileDropdownIcon").classList.toggle("rotate-180");
-    };
-</script>
 
 <!-- SPACER -->
 <div class="h-20"></div>
@@ -135,24 +108,28 @@
     <div class="max-w-6xl mx-auto px-4 lg:px-8">
 
         <div class="bg-white shadow rounded-xl p-4 flex flex-col md:flex-row items-center gap-4">
-            <input type="text" class="w-full border rounded-lg px-4 py-3 text-sm 
+            <input type="text" id="searchInput" class="w-full border rounded-lg px-4 py-3 text-sm 
                    focus:ring-2 focus:ring-green-500 outline-none"
                    placeholder="Cari buku berdasarkan judul, penulis, atau ISBN...">
 
-            <button class="px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-semibold">
-                Filter
+            <button id="searchBtn" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-semibold">
+                Cari
+            </button>
+            
+            <button id="resetBtn" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-semibold">
+                Reset
             </button>
         </div>
 
         <!-- Categories -->
         <div class="flex flex-wrap gap-3 mt-6">
-            <button class="px-5 py-2 text-sm bg-green-600 text-white rounded-full">Semua Buku</button>
-            <button class="px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">Fiksi</button>
-            <button class="px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">Pengembangan Diri</button>
-            <button class="px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">Keuangan</button>
-            <button class="px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">Sejarah</button>
-            <button class="px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">Produktivitas</button>
-            <button class="px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full">Psikologi</button>
+            <button class="category-btn px-5 py-2 text-sm bg-green-600 text-white rounded-full" data-category="all">Semua Buku</button>
+            <button class="category-btn px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full" data-category="fiksi">Fiksi</button>
+            <button class="category-btn px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full" data-category="pengembangan">Pengembangan Diri</button>
+            <button class="category-btn px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full" data-category="keuangan">Keuangan</button>
+            <button class="category-btn px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full" data-category="sejarah">Sejarah</button>
+            <button class="category-btn px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full" data-category="produktivitas">Produktivitas</button>
+            <button class="category-btn px-5 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-full" data-category="psikologi">Psikologi</button>
         </div>
 
     </div>
@@ -163,46 +140,21 @@
     <div class="max-w-7xl mx-auto px-4 lg:px-8">
 
         <h3 class="font-semibold text-gray-700 mb-4">Buku Tersedia</h3>
-    <p class="text-sm text-gray-500 mb-6">
-        Menampilkan {{ $buku->count() }} buku
-    </p>
+        <p class="text-sm text-gray-500 mb-6">
+            Menampilkan <span id="bookCount">12</span> buku
+        </p>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div id="bookGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+            <!-- Books will be dynamically loaded here -->
+        </div>
 
-    @foreach ($buku as $item)
-        <a href="#"
-        class="bg-white rounded-xl shadow hover:shadow-md transition p-3 flex flex-col">
+        <div id="noResults" class="hidden text-center py-12">
+            <div class="text-gray-400 text-5xl mb-4">📚</div>
+            <p class="text-gray-600 font-semibold">Tidak ada buku yang ditemukan</p>
+            <p class="text-gray-500 text-sm mt-2">Coba ubah kata kunci pencarian Anda</p>
+        </div>
 
-            <div class="rounded-xl overflow-hidden">
-                <img src="{{ asset('assets/img/book1.jpg') }}"
-                    class="w-full h-40 object-cover">
-            </div>
-
-            @if ($item->status_ketersediaan === 'Tersedia')
-                <span class="mt-3 inline-block text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">
-                    Tersedia
-                </span>
-            @else
-                <span class="mt-3 inline-block text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full">
-                    Dipinjam
-                </span>
-            @endif
-
-            <h4 class="font-semibold text-sm mt-2">{{ $item->judul }}</h4>
-            <p class="text-xs text-gray-500">{{ $item->penulis }}</p>
-            <p class="text-xs text-gray-400">{{ $item->tahun_terbit }}</p>
-
-            <span class="mt-2 text-[10px] bg-gray-100 px-2 py-1 rounded-full text-gray-600">
-                {{ $item->penerbit }}
-            </span>
-
-        </a>
-    @endforeach
-
-    </div>
-
-
-        <div class="flex justify-center items-center gap-2 mt-10">
+        <div id="pagination" class="flex justify-center items-center gap-2 mt-10">
             <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">‹</button>
             <button class="w-8 h-8 rounded-lg bg-green-600 text-white text-sm">1</button>
             <button class="w-8 h-8 rounded-lg border bg-white hover:bg-gray-100 text-sm">2</button>
@@ -225,17 +177,17 @@
         <div>
             <h4 class="font-semibold text-sm mb-3">Tautan Cepat</h4>
             <ul class="space-y-2 text-xs">
-                <li><a href="{{ url('/home-pengunjung') }}" class="hover:text-white">Home</a></li>
-                <li><a href="{{ url('/agenda') }}" class="hover:text-white">Agenda</a></li>
-                <li><a href="{{ url('/pengumuman') }}" class="hover:text-white">Pengumuman</a></li>
-                <li><a href="{{ url('/register') }}" class="hover:text-white">Pendaftaran Anggota</a></li>
+                <li><a href="#" class="hover:text-white">Home</a></li>
+                <li><a href="#" class="hover:text-white">Agenda</a></li>
+                <li><a href="#" class="hover:text-white">Pengumuman</a></li>
+                <li><a href="#" class="hover:text-white">Pendaftaran Anggota</a></li>
             </ul>
         </div>
 
         <div>
             <h4 class="font-semibold text-sm mb-3">Informasi</h4>
             <ul class="space-y-2 text-xs">
-                <li><a href="{{ url('/faq') }}" class="hover:text-white">FAQ</a></li>
+                <li><a href="#" class="hover:text-white">FAQ</a></li>
                 <li><a href="#" class="hover:text-white">Kebijakan Privasi</a></li>
                 <li><a href="#" class="hover:text-white">Syarat & Ketentuan</a></li>
             </ul>
@@ -252,6 +204,186 @@
 
     </div>
 </footer>
+
+<script>
+// Sample book data (replace with actual data from backend)
+// const allBooks = [
+//     { id: 1, judul: 'Atomic Habits', penulis: 'James Clear', tahun: 2018, penerbit: 'Penguin', kategori: 'pengembangan', status: 'Tersedia', isbn: '978-0735211292' },
+//     { id: 2, judul: 'Sapiens', penulis: 'Yuval Noah Harari', tahun: 2014, penerbit: 'Harper', kategori: 'sejarah', status: 'Tersedia', isbn: '978-0062316097' },
+//     { id: 3, judul: 'Rich Dad Poor Dad', penulis: 'Robert Kiyosaki', tahun: 1997, penerbit: 'Warner Books', kategori: 'keuangan', status: 'Dipinjam', isbn: '978-1612680194' },
+//     { id: 4, judul: 'The Psychology of Money', penulis: 'Morgan Housel', tahun: 2020, penerbit: 'Harriman', kategori: 'keuangan', status: 'Tersedia', isbn: '978-0857197689' },
+//     { id: 5, judul: 'Deep Work', penulis: 'Cal Newport', tahun: 2016, penerbit: 'Grand Central', kategori: 'produktivitas', status: 'Tersedia', isbn: '978-1455586691' },
+//     { id: 6, judul: 'Thinking Fast and Slow', penulis: 'Daniel Kahneman', tahun: 2011, penerbit: 'Farrar', kategori: 'psikologi', status: 'Tersedia', isbn: '978-0374533557' },
+//     { id: 7, judul: 'Harry Potter', penulis: 'J.K. Rowling', tahun: 1997, penerbit: 'Bloomsbury', kategori: 'fiksi', status: 'Tersedia', isbn: '978-0439708180' },
+//     { id: 8, judul: 'The Alchemist', penulis: 'Paulo Coelho', tahun: 1988, penerbit: 'HarperCollins', kategori: 'fiksi', status: 'Dipinjam', isbn: '978-0062315007' },
+//     { id: 9, judul: 'Essentialism', penulis: 'Greg McKeown', tahun: 2014, penerbit: 'Crown', kategori: 'produktivitas', status: 'Tersedia', isbn: '978-0804137386' },
+//     { id: 10, judul: 'Man Search for Meaning', penulis: 'Viktor Frankl', tahun: 1946, penerbit: 'Beacon Press', kategori: 'psikologi', status: 'Tersedia', isbn: '978-0807014271' },
+//     { id: 11, judul: 'The Intelligent Investor', penulis: 'Benjamin Graham', tahun: 1949, penerbit: 'Harper Business', kategori: 'keuangan', status: 'Tersedia', isbn: '978-0060555665' },
+//     { id: 12, judul: 'Homo Deus', penulis: 'Yuval Noah Harari', tahun: 2015, penerbit: 'Harper', kategori: 'sejarah', status: 'Tersedia', isbn: '978-0062464347' }
+// ];
+
+const allBooks = @json($buku);
+
+let currentBooks = [...allBooks];
+let currentCategory = 'all';
+let searchQuery = '';
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    renderBooks(currentBooks);
+    setupEventListeners();
+});
+
+function renderBooks(books) {
+    const grid = document.getElementById('bookGrid');
+    const noResults = document.getElementById('noResults');
+    const bookCount = document.getElementById('bookCount');
+    
+    bookCount.textContent = books.length;
+    
+    if (books.length === 0) {
+        grid.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+    }
+    
+    grid.classList.remove('hidden');
+    noResults.classList.add('hidden');
+    
+    grid.innerHTML = books.map(book => `
+        <a href="#" class="bg-white rounded-xl shadow hover:shadow-md transition p-3 flex flex-col">
+            <div class="rounded-xl overflow-hidden bg-gradient-to-br from-green-400 to-green-600">
+                <div class="w-full h-40 flex items-center justify-center text-white font-bold text-2xl">
+                    ${book.judul.charAt(0)}
+                </div>
+            </div>
+
+            ${book.status === 'Tersedia' 
+                ? '<span class="mt-3 inline-block text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full w-fit">Tersedia</span>'
+                : '<span class="mt-3 inline-block text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full w-fit">Dipinjam</span>'
+            }
+
+            <h4 class="font-semibold text-sm mt-2">${book.judul}</h4>
+            <p class="text-xs text-gray-500">${book.penulis}</p>
+            <p class="text-xs text-gray-400">${book.tahun}</p>
+
+            <span class="mt-2 text-[10px] bg-gray-100 px-2 py-1 rounded-full text-gray-600 w-fit">
+                ${book.penerbit}
+            </span>
+        </a>
+    `).join('');
+}
+
+function filterBooks() {
+    let filtered = [...allBooks];
+    
+    // Filter by category
+    if (currentCategory !== 'all') {
+        filtered = filtered.filter(book => book.kategori === currentCategory);
+    }
+    
+    // Filter by search query
+    if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        filtered = filtered.filter(book => 
+            book.judul.toLowerCase().includes(query) ||
+            book.penulis.toLowerCase().includes(query) ||
+            book.isbn.includes(query)
+        );
+    }
+    
+    currentBooks = filtered;
+    renderBooks(currentBooks);
+}
+
+function setupEventListeners() {
+    // Search input - live search
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        filterBooks();
+    });
+    
+    // Search button
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        searchQuery = searchInput.value.trim();
+        filterBooks();
+    });
+    
+    // Enter key on search
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            searchQuery = searchInput.value.trim();
+            filterBooks();
+        }
+    });
+    
+    // Reset button
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        currentCategory = 'all';
+        
+        // Reset category buttons
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            if (btn.dataset.category === 'all') {
+                btn.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+                btn.classList.add('bg-green-600', 'text-white');
+            } else {
+                btn.classList.remove('bg-green-600', 'text-white');
+                btn.classList.add('bg-gray-100', 'hover:bg-gray-200');
+            }
+        });
+        
+        filterBooks();
+    });
+    
+    // Category buttons
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentCategory = btn.dataset.category;
+            
+            // Update button styles
+            document.querySelectorAll('.category-btn').forEach(b => {
+                b.classList.remove('bg-green-600', 'text-white');
+                b.classList.add('bg-gray-100', 'hover:bg-gray-200');
+            });
+            btn.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+            btn.classList.add('bg-green-600', 'text-white');
+            
+            filterBooks();
+        });
+    });
+    
+    // Menu toggle
+    document.getElementById('menuBtn').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    
+    // Desktop dropdown
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const dropdownIcon = document.getElementById('dropdownIcon');
+
+    dropdownBtn.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+        dropdownIcon.classList.toggle('rotate-180');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+            dropdownIcon.classList.remove('rotate-180');
+        }
+    });
+    
+    // Mobile dropdown
+    document.getElementById('mobileDropdownBtn').addEventListener('click', () => {
+        document.getElementById('mobileDropdownMenu').classList.toggle('hidden');
+        document.getElementById('mobileDropdownIcon').classList.toggle('rotate-180');
+    });
+}
+</script>
 
 </body>
 </html>

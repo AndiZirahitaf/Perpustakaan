@@ -146,7 +146,7 @@
             <div>
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-sm font-bold">1</div>
-                    <h2 class="text-lg font-semibold">Informasi Pribadi</h2>
+                    <h2 class="text-lg font-semibold">Daftar Anggota</h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
@@ -188,11 +188,23 @@
                     <label class="text-sm font-semibold">Alamat Lengkap *</label>
                     <textarea class="mt-1 w-full px-4 py-2 border rounded-lg text-sm h-24" name="address" required placeholder="Masukkan alamat lengkap"></textarea>
                 </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <label class="text-sm font-semibold">Password *</label>
+                        <input type="password" name="password" required class="mt-1 w-full px-4 py-2 border rounded-lg text-sm" placeholder="Minimal 8 karakter">
+                    </div>
+
+                    <div>
+                        <label class="text-sm font-semibold">Konfirmasi Password *</label>
+                        <input type="password" name="password_confirmation" required class="mt-1 w-full px-4 py-2 border rounded-haspopup rounded-lg text-sm" placeholder="Masukkan ulang password">
+                    </div>
+                </div>
             </div>
 
             <!-- INFORMASI AKUN -->
             <div>
-                <div class="flex items-center gap-3 mb-6">
+                {{-- <div class="flex items-center gap-3 mb-6">
                     <div class="w-8 h-8 rounded-full bg-yellow-500 text-white flex items-center justify-center text-sm font-bold">2</div>
                     <h2 class="text-lg font-semibold">Informasi Akun</h2>
                 </div>
@@ -212,7 +224,7 @@
                         <label class="text-sm font-semibold">Konfirmasi Password *</label>
                         <input type="password" name="password_confirmation" required class="mt-1 w-full px-4 py-2 border rounded-haspopup rounded-lg text-sm" placeholder="Masukkan ulang password">
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mt-5">
                     <label class="flex items-start gap-2 text-sm">

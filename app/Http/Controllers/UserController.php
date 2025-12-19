@@ -57,8 +57,7 @@ class UserController extends Controller
     
     $data = $request->validate([
         'name' => 'required|string|max:100',
-        'email' => 'required|email|unique:users,email',
-        'username' => 'required|string|unique:users,username',
+        'email' => 'required|email|unique:anggota,email',
         'password' => 'required|min:8|confirmed',
         'phone' => 'required',
         'gender' => 'required|in:L,P',
@@ -71,17 +70,18 @@ class UserController extends Controller
     $user = User::create([
         'name' => $data['name'],
         'email' => $data['email'],
-        'username' => $data['username'],
         'password' => Hash::make($data['password']),
         'phone' => $data['phone'],
         'gender' => $data['gender'],
         'birth_date' => $data['birth_date'],
         'address' => $data['address'],
+        'status_keanggotaan' => 'aktif',
+        'tanggal_daftar' => now(),
     ]);
 
     return redirect()
-    ->route('login.show')
-    ->with('success', 'Registrasi berhasil, silakan login.');
+        ->route('login.show')
+        ->with('success', 'Registrasi berhasil, silakan login.');
 
 }
 

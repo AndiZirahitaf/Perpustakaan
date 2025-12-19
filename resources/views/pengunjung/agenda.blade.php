@@ -150,7 +150,7 @@
         <div class="lg:col-span-3 space-y-10">
 
             <!-- SECTION 1 -->
-            <h3 class="font-semibold text-gray-700 mb-3">Segera Dimulai</h3>
+            {{-- <h3 class="font-semibold text-gray-700 mb-3">Segera Dimulai</h3> --}}
 
             <div class="space-y-5">
 
@@ -177,7 +177,7 @@
                     </div>
                 </div>
 
-                <!-- EVENT 2 -->
+                {{-- <!-- EVENT 2 -->
                 <div class="bg-white rounded-2xl shadow p-5 flex flex-col md:flex-row gap-5">
                     <div class="w-20 h-20 bg-green-100 rounded-xl flex flex-col items-center justify-center text-green-700 font-semibold">
                         <span>26</span>
@@ -197,10 +197,10 @@
                             Pelatihan teknik penulisan karya ilmiah untuk mahasiswa dan peneliti.
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- EVENT 3 -->
-                <div class="bg-white rounded-2xl shadow p-5 flex flex-col md:flex-row gap-5">
+                {{-- <div class="bg-white rounded-2xl shadow p-5 flex flex-col md:flex-row gap-5">
                     <div class="w-20 h-20 bg-green-100 rounded-xl flex flex-col items-center justify-center text-green-700 font-semibold">
                         <span>27</span>
                         <span class="text-xs">Nov</span>
@@ -219,12 +219,12 @@
                             Sesi dongeng interaktif untuk anak usia 5–10 tahun.
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
             <!-- SECTION 2 -->
-            <h3 class="font-semibold text-gray-700 mt-10">Minggu Ini</h3>
+            {{-- <h3 class="font-semibold text-gray-700 mt-10">Minggu Ini</h3>
 
             <div class="space-y-5">
                 <div class="bg-white rounded-2xl shadow p-5 flex flex-col md:flex-row gap-5">
@@ -254,10 +254,10 @@
                         <p class="text-xs text-gray-500 mt-1">🕒 08:00 - 17:00 · Lobby Utama</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- SECTION 3 -->
-            <h3 class="font-semibold text-gray-700 mt-10">Bulan Depan</h3>
+            {{-- <h3 class="font-semibold text-gray-700 mt-10">Bulan Depan</h3>
 
             <div class="bg-white rounded-2xl shadow p-5 flex flex-col md:flex-row gap-5">
                 <div class="w-20 h-20 bg-green-100 rounded-xl flex flex-col items-center justify-center text-green-700 font-semibold">
@@ -271,7 +271,7 @@
 
                     <p class="text-xs text-gray-500 mt-1">🕒 15:00 - 17:00 · Ruang Seminar</p>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>
