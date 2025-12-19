@@ -165,7 +165,7 @@
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER --->
 <footer class="bg-gray-900 text-gray-300 pt-10 pb-6">
     <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-6">
 
